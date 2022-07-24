@@ -5,9 +5,60 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.wrapper {
+  position: absolute;
+  top: 30%;
+  left: 42%;
+  width: 330px;
+  padding: 40px;
+  background: rgba(238, 235, 235, 0.5);
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+}
+
+.inputs{
+  margin-bottom: 40px;
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 8px;  
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+}
+
+.background{
+  background-image: url(https://images6.alphacoders.com/909/thumb-1920-909641.png);
+  width: auto;
+  height: 937px;
+}
+
+.background-register{
+  background-image: url(https://wallpapercave.com/wp/wp6105436.jpg);
+  width: auto;
+  height: 937px;
+}
+
+.login-reg-button{
+  width: 80px;
+  height: 40px;
+  border-radius: 20px;
+  background: rgb(25, 49, 3);
+  background: linear-gradient(0deg, rgb(100, 179, 36) 0%, rgb(4, 90, 25) 100%);
+  font-family: 'Comfortaa', cursive;
+  font-family: 'Roboto', sans-serif;
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+}
+
+.navbar-brand{
+  margin-left: 15px;
+}
+.navbar {
+  background-color: rgba(0, 0, 0, 0.644);
+  height: 70px;
 }
