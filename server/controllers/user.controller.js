@@ -10,7 +10,52 @@ const createUser = (req, res) => {
     });
 };
 
-const getOneUser = (req, res) => {
+const register = (req, res) => {
+    User.create(req.body)
+        then(user => {
+            const userToken = jwt.sign({
+                id: user._id
+            }, process.env.SECRET_KEY);
+
+            res
+                .cookie("usertoken", userToken, secret, {
+                    httpOnly: true
+                })
+                .json({ msg: "success!", user: user });
+        })
+        .catch(err => res.json(err));
+    };
+
+const login = async(req, res) => {
+        const user = await User.findOne({ email: req.body.email });
+
+        if(user === null) {
+            return res.sendStatus(400);
+        }
+
+        const correctPassword = await bcrypt.compare(req.body.password, user.password);
+
+        if(!correctPassword) {
+            return res.sendStatus(400);
+        }
+
+        const userToken = jwt.sign({
+            id: user._id
+        }, process.env.SECRET_KEY)
+
+        res
+            .cookie("usertoken", userToken, secret, {
+                httpOnly: true
+            })
+            .json({ msg: "success!" });
+    };
+
+const logout = (req, res) => {
+        res.clearCookie('usertoken');
+        res.sendStatus(200);
+    }
+
+const getLoggedInUser = (req, res) => {
     User.findOne({_id: req.params.id})
     .then((queriedUser) => {
         res.json(queriedUser);
@@ -45,7 +90,10 @@ const deleteUser = (req, res) => {
 
 module.exports = {
     createUser,
-    getOneUser,
+    getLoggedInUser,
     updateUser,
     deleteUser,
+    register,
+    login,
+    logout,
 };
