@@ -26,26 +26,26 @@ const Login = () => {
         .catch((err) => console.error('login', err));
     }
     return (
-        <div class="background">
-            <nav class="navbar navbar-expand-lg navbar-dark shadow-5-strong">
-                <a class="navbar-brand">RickyAndMorty</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+        <div className="background">
+            <nav className="navbar navbar-expand-lg navbar-dark shadow-5-strong">
+                <a className="navbar-brand">RickyAndMorty</a>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/register">Register</a>
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul className="navbar-nav mr-auto">
+                <li className="nav-item">
+                    <a className="nav-link" href="/register">Register</a>
                 </li>
                 </ul>  
             </div>
             </nav>
-        <div class="wrapper">
+        <div className="wrapper">
         <form onSubmit={handleSubmit}>
-            <input class="inputs" type="email" name="email" placeholder='Email' value={user.email} onChange={handleChange}/>
-            <input class="inputs" type="text" name="password"  placeholder='Password' value={user.password} onChange={handleChange}/>
-                <button class="login-reg-button"type="submit">Login</button>
+            <input className="inputs" type="email" name="email" placeholder='Email' value={user.email} onChange={handleChange}/>
+            <input className="inputs" type="password" name="password"  placeholder='Password' value={user.password} onChange={handleChange}/>
+                <button className="login-reg-button"type="submit">Login</button>
         </form>
         </div>
         </div>
