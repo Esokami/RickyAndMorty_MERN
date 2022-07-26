@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* Importing the necessary libraries for the component to work. */
 import React from  'react';
 import axios from "axios";
@@ -26,21 +27,20 @@ const Login = () => {
     }
     return (
         <div class="background">
-<nav class="navbar navbar-expand-lg navbar-dark shadow-5-strong">
-<a class="navbar-brand">RickyAndMorty</a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-</button>
+            <nav class="navbar navbar-expand-lg navbar-dark shadow-5-strong">
+                <a class="navbar-brand">RickyAndMorty</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-    <li class="nav-item">
-        <a class="nav-link" href="/register">Register</a>
-    </li>
-    </ul>  
-</div>
-</nav>
-
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">Register</a>
+                </li>
+                </ul>  
+            </div>
+            </nav>
         <div class="wrapper">
         <form onSubmit={handleSubmit}>
             <input class="inputs" type="email" name="email" placeholder='Email' value={user.email} onChange={handleChange}/>

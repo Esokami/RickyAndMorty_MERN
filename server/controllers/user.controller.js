@@ -1,4 +1,7 @@
+require("dotenv").config();
 const User = require("../models/user.model")
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 const createUser = (req, res) => {
     User.create(req.body) 
