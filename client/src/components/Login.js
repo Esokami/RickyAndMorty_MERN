@@ -1,10 +1,11 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* Importing the necessary libraries for the component to work. */
 import React from  'react';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Roboto:wght@300&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet"></link>
 /**
  * It's a function that takes in a setLogin function as a prop, and returns a form that when submitted,
  * sends a post request to the server with the user's email and password, and if the request is
@@ -17,7 +18,7 @@ const Login = () => {
     const handleChange = (e) => {setUser({ ...user, [e.target.name]: e.target.value});};
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8000/login', user,{
+        axios.post('http://localhost:8000/api/login', user,{
             withCredentials: true,
         })
         .then((res) => {
@@ -27,13 +28,29 @@ const Login = () => {
         .catch((err) => console.error('login', err));
     }
     return (
+        <div className="background">
+            <nav className="navbar navbar-expand-lg navbar-dark shadow-5-strong">
+                <a className="navbar-brand">RickyAndMorty</a>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+            </button>
+
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul className="navbar-nav mr-auto">
+                <li className="nav-item">
+                    <a className="nav-link" href="/register">Register</a>
+                </li>
+                </ul>  
+            </div>
+            </nav>
+        <div className="wrapper">
         <form onSubmit={handleSubmit}>
-            <label htmlFor="">email</label>
-            <input type="email" name="email" value={user.email} onChange={handleChange}/>
-            <label htmlFor="">password</label>
-            <input type="text" name="password" value={user.password} onChange={handleChange}/>
-                <button type="submit">Login</button>
+            <input className="inputs" type="email" name="email" placeholder='Email' value={user.email} onChange={handleChange}/>
+            <input className="inputs" type="password" name="password"  placeholder='Password' value={user.password} onChange={handleChange}/>
+                <button className="login-reg-button"type="submit">Login</button>
         </form>
+        </div>
+        </div>
     );
 };
 
