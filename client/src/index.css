@@ -19,6 +19,7 @@ code {
   left: 42%;
   width: 330px;
   padding: 40px;
+  border-radius: 20px;
   background: rgba(238, 235, 235, 0.5);
   box-shadow: 0 15px 25px rgba(0,0,0,.6);
 }
@@ -30,6 +31,7 @@ code {
   height: auto;
   padding: 8px;  
   font-family: 'ZCOOL QingKe HuangYou', cursive;
+  text-align: center;
 }
 
 .background{
@@ -42,6 +44,12 @@ code {
   background-image: url(https://wallpapercave.com/wp/wp6105436.jpg);
   width: auto;
   height: 937px;
+}
+
+.background-char{
+  background-image: url(https://static4.depositphotos.com/1005844/382/i/600/depositphotos_3820516-stock-photo-stars.jpg);
+  width: auto;
+  
 }
 
 .login-reg-button{
@@ -61,4 +69,85 @@ code {
 .navbar {
   background-color: rgba(0, 0, 0, 0.644);
   height: 70px;
+}
+
+.wrapper2 {
+  width: 340px;
+  height: 550px;
+  padding: 20px;
+  background: rgba(5, 0, 0, 0.5);
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  margin-left: 43%;
+  border-radius: 10px;
+  background-image: url(https://cdn.europosters.eu/image/1300/art-photo/rick-and-morty-space-i115643.jpg);
+}
+
+.wrapper2 img{
+  border: 2px solid rgb(21, 175, 7);
+  border-radius: 300px;
+  box-shadow: 0 15px 25px rgba(28, 109, 4, 0.6);
+}
+
+h3,h5{
+  color: white;
+  font-family: 'Comfortaa', cursive;
+}
+
+.wrapper2:hover img {
+  transform: scale(1.15);
+}
+
+.grids{
+  display: inline-table;
+  margin-right: 12px;
+  margin-bottom: 10px;
+  margin-top: 50px;
+  align-items: center;
+}
+.bar{
+  margin-left: 35%;
+}
+
+.bardetails{
+  width: 50%;
+  margin-top: 10px;
+  text-align: center;
+  border-radius: 10px;
+  border-style: none;
+}
+
+.btn{
+  margin-bottom: 20px;
+}
+
+.editCard{
+  margin: 10px;
+  background-color: aliceblue;
+  border: 1px black solid;
+  padding: 10px;
+}
+.cardInfo{
+  margin-right: 10px;
+  margin-bottom: 30px;
+  background-color: aliceblue;
+  border: 1px black solid;
+  padding: 10px;
+  font-size: large;
+}
+
+.wrapper3{
+  position: absolute;
+  top: 20%;
+  left: 42%;
+  width: 330px;
+  padding: 40px;
+  border-radius: 20px;
+  background: rgba(238, 235, 235, 0.5);
+  box-shadow: 0 15px 25px rgba(0,0,0,.6)
+}
+
+.background-edit{
+  background-image: url(https://wallpapercave.com/wp/wp6105436.jpg);
+  width: auto;
+  height: 937px;
 }

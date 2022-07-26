@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import { FcSearch } from "react-icons/fc";
 
 const SearchBar = (props) => {
     const [characters, setCharacters] = useState([]);
@@ -33,10 +34,10 @@ const SearchBar = (props) => {
 
     return (
         <div>
-            <input type="text" placeholder='Search...' onChange={(handleFilter)}></input>
+            <FcSearch/> <input class="bardetails" type="text"  placeholder='Search' onChange={(handleFilter)}></input>
                 <div>
                     {
-                        filterData.length != 0 && (
+                        filterData.length !== 0 && (
                             <div>
                             {
                                 filterData.slice(0, 15).map((character, index) => {
