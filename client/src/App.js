@@ -4,6 +4,8 @@ import ViewCharacter from './components/ViewCharacter';
 import Register from './components/Register';
 import Login from './components/Login';
 import AddCharacter from './components/AddCharacter';
+=======
+import UpdateUser from './components/UpdateUser';
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
           <Route path="/characters/:id" element={<ViewCharacter/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/login" element={<Login/>}/>
+          <Route path="/updateUser" element={<UpdateUser/>}/>
         </Routes>
       </BrowserRouter>
     </div>
