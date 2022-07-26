@@ -18,7 +18,7 @@ const Login = () => {
     const handleChange = (e) => {setUser({ ...user, [e.target.name]: e.target.value});};
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8000/login', user,{
+        axios.post('http://localhost:8000/api/login', user,{
             withCredentials: true,
         })
         .then((res) => {
