@@ -18,7 +18,7 @@ const Register = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-            .post('http://localhost:8000/register', user,{withCredentials: true,})
+            .post('http://localhost:8000/api/register', user,{withCredentials: true,})
             .then((res) => {console.log('ress', res.data);navigate('/login');})
             .catch((err) => console.log('axios register error', err));
     }
@@ -39,19 +39,19 @@ const Register = () => {
             </nav>
             <div className="wrapper">
                 <form onSubmit={handleSubmit}>
-                    <div classNameName='form-group'>
+                    <div className='form-group'>
                         <input className="inputs"  placeholder='First Name' type="text" name="firstName" value={user.firstName} onChange={handleChange}/>
                     </div>
-                    <div classNameName='form-group'>
+                    <div className='form-group'>
                         <input  className="inputs" placeholder='Last Name'type="text" name="lastName" value={user.lastName} onChange={handleChange}/>
                     </div>
-                    <div classNameName='form-group'>
+                    <div className='form-group'>
                         < input className="inputs"  placeholder='Email' type="email" name="email" value={user.email} onChange={handleChange}/>
                     </div>      
-                    <div classNameName='form-group'>
+                    <div className='form-group'>
                         <input  className="inputs" placeholder='Password' type="password" name="password" value={user.password} onChange={handleChange}/>
                     </div>
-                    <div classNameName='form-group'>
+                    <div className='form-group'>
                         <input  className="inputs" placeholder='Confrim Password' type="password" name="confirmPassword" value={user.confirmPassword} onChange={handleChange}/>
                     </div>
                     <button className="login-reg-button"type="submit">Register</button>
