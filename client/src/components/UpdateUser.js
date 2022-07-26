@@ -9,7 +9,7 @@ const UpdateUser = () => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
-    const [characterData, setCharacterData] = useState(''); 
+    const [characterData, setCharacterData] = useState(""); 
     const navigate = useNavigate();
     useEffect(() => {
         axios.get(`http://localhost:8000/api/pet/${id}`)

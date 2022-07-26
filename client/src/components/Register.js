@@ -23,38 +23,38 @@ const Register = () => {
             .catch((err) => console.log('axios register error', err));
     }
     return (
-        <div class="background-register">
-            <nav class="navbar navbar-expand-lg navbar-dark shadow-5-strong">
-                <a class="navbar-brand">RickyAndMorty</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+        <div className="background-register">
+            <nav className="navbar navbar-expand-lg navbar-dark shadow-5-strong">
+                <a className="navbar-brand">RickyAndMorty</a>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul className="navbar-nav mr-auto">
+                <li className="nav-item">
+                    <a className="nav-link" href="/login">Login</a>
                 </li>
                 </ul>  
             </div>
             </nav>
-            <div class="wrapper">
+            <div className="wrapper">
                 <form onSubmit={handleSubmit}>
-                    <div className='form-group'>
-                        <input class="inputs"  placeholder='First Name' type="text" name="firstName" value={user.firstName} onChange={handleChange}/>
+                    <div classNameName='form-group'>
+                        <input className="inputs"  placeholder='First Name' type="text" name="firstName" value={user.firstName} onChange={handleChange}/>
                     </div>
-                    <div className='form-group'>
-                        <input  class="inputs" placeholder='Last Name'type="text" name="lastName" value={user.lastName} onChange={handleChange}/>
+                    <div classNameName='form-group'>
+                        <input  className="inputs" placeholder='Last Name'type="text" name="lastName" value={user.lastName} onChange={handleChange}/>
                     </div>
-                    <div className='form-group'>
-                        < input class="inputs"  placeholder='Email' type="email" name="email" value={user.email} onChange={handleChange}/>
+                    <div classNameName='form-group'>
+                        < input className="inputs"  placeholder='Email' type="email" name="email" value={user.email} onChange={handleChange}/>
                     </div>      
-                    <div className='form-group'>
-                        <input  class="inputs" placeholder='Password' type="text" name="password" value={user.password} onChange={handleChange}/>
+                    <div classNameName='form-group'>
+                        <input  className="inputs" placeholder='Password' type="password" name="password" value={user.password} onChange={handleChange}/>
                     </div>
-                    <div className='form-group'>
-                        <input  class="inputs" placeholder='Confrim Password' type="text" name="confirmPassword" value={user.confirmPassword} onChange={handleChange}/>
+                    <div classNameName='form-group'>
+                        <input  className="inputs" placeholder='Confrim Password' type="password" name="confirmPassword" value={user.confirmPassword} onChange={handleChange}/>
                     </div>
-                    <button class="login-reg-button"type="submit">Register</button>
+                    <button className="login-reg-button"type="submit">Register</button>
                 </form>
             </div>
         </div>
