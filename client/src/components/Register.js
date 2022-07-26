@@ -17,9 +17,11 @@ const Register = () => {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios
-            .post('http://localhost:8000/register', user,{withCredentials: true,})
-            .then((res) => {console.log('ress', res.data);navigate('/login');})
+        axios.post('http://localhost:8000/register', user,{withCredentials: true,})
+            .then((res) => {
+                console.log('ress', res.data);
+                navigate('/characters');
+            })
             .catch((err) => {console.log('axios register error', err);setErrors(err.res.data.errors);});
     }
     return (

@@ -21,7 +21,9 @@ const Login = () => {
             withCredentials: true,
         })
         .then((res) => {
-            console.log('user successfully logged in', res.data);navigate('/CharacterList');})
+            console.log('user successfully logged in', res.data);
+            navigate('/characters');
+        })
         .catch((err) => console.error('login', err));
     }
     return (
