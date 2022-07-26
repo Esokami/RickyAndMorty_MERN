@@ -8,7 +8,7 @@ const CharacterSchema = new mongoose.Schema ({
     // },
 
     card: {
-        type: mongoose.Types.ObjectId,
+        type: String,
         requried: true
     },
     //Likes can be incremented or decremented, instead having a slot for likes AND dislike
