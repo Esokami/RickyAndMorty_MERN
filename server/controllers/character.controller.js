@@ -1,7 +1,8 @@
 const Character = require("../models/character.model")
 
 const createCharacter = (req, res) => {
-    Character.create(req.body) 
+    // need to make an api call so that the app knows where to get the image from 
+    Character.create(character.image) //we're just grabbing the image from the api; what to do for the likes and dislikes?
     .then((newCharacter) => {
         res.json({newCharacter});
     })
