@@ -12,7 +12,7 @@ const UpdateUser = () => {
     const [characterData, setCharacterData] = useState(""); 
     const navigate = useNavigate();
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/pet/${id}`)
+        axios.get(`http://localhost:8000/api/user/${id}`)
             .then((res) => {console.log(res.data);setFirstName(res.data.firstName);setFirstName(res.data.lastName);setEmail(res.data.email);})
             .catch((err) => console.log(err));
     }, []);
