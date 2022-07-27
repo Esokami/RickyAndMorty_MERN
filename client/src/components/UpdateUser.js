@@ -27,7 +27,7 @@ const UpdateUser = () => {
             .then((res) => {console.log(res);setCharacterData(res.data);})
             .catch((err) => console.log(err));
     }, []);
-    const deleteCharacter = (idFromBelow) => {
+    const deletecard = (idFromBelow) => {
         axios.delete(`http://localhost:8000/api/character/${idFromBelow}`)
             .then((res) => {console.log(res);console.log(res.data); navigate("/");})
             .catch((err) => {console.log(err);});
@@ -56,7 +56,7 @@ const UpdateUser = () => {
                 <div className="cardInfo">
                 <p>Card Details {characterData.name}</p>
                 </div>
-                <button className="btn btn-danger" onClick={() => deleteCharacter(characterData._id)}>Delete</button>
+                <button className="btn btn-danger" onClick={() => deletecard(characterData._id)}>Delete</button>
         </form>
         </div>
         </div>
