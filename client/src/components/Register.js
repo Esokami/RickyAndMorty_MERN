@@ -17,7 +17,8 @@ const Register = () => {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8000/register', user,{withCredentials: true,})
+        
+        axios.post('http://localhost:8000/api/register', user,{withCredentials: true,})
             .then((res) => {
                 console.log('ress', res.data);
                 navigate('/dashboard');
