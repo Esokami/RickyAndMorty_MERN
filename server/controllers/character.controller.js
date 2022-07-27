@@ -1,8 +1,6 @@
 const Character = require("../models/character.model")
 
-const createCharacter = (req, res) => {
-
-    
+const createCharacter = (req, res) => {    
     // need to make an api call so that the app knows where to get the image from 
     Character.create(req.body) //we're just grabbing the image from the api; what to do for the likes and dislikes?
     .then((newCharacter) => {
@@ -24,7 +22,7 @@ const getAllCharacters = (req, res) => {
 };
 
 const getOneCharacter = (req, res) => {
-    User.findOne({_id: req.params.id})
+    Character.findOne({_id: req.params.id})
     .then((queriedCharacter) => {
         res.json(queriedCharacter);
     })
@@ -34,7 +32,7 @@ const getOneCharacter = (req, res) => {
 };
 
 const updateCharacter = (req, res) => {
-    User.findOneAndUpdate({_id: req.params.id}, req.body, {
+    Character.findOneAndUpdate({_id: req.params.id}, req.body, {
         new: true,
         runValidators: true,
     })
@@ -47,7 +45,7 @@ const updateCharacter = (req, res) => {
 };
 
 const deleteCharacter = (req, res) => {
-    User.deleteOne({_id: req.params.id})
+    Character.deleteOne({_id: req.params.id})
     .then((deletedCharacter) => {
         res.json({deletedCharacter});
     })

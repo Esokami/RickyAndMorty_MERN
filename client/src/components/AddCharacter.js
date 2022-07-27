@@ -7,7 +7,12 @@ import Button from 'react-bootstrap/Button';
 
 const AddCharacter = (props) => {
     const {characters, setCharacters} = props;
-    const [card, setCard] = useState("");
+    const [image, setImage] = useState("");
+    const [name, setName] = useState("");
+    const [status, setStatus] = useState("");
+    const [species, setSpecies] = useState("");
+    const [gender, setGender] = useState("");
+    const [home, setHome] = useState("");
     const [likes, setLikes] = useState("");
 
     const [characterList, setCharacterList] = useState([]);
@@ -33,7 +38,12 @@ const AddCharacter = (props) => {
         e.preventDefault();
 
         axios.post('http://localhost:8000/api/character', {
-            card,
+            image,
+            name,
+            status,
+            species,
+            gender,
+            home,
             likes
         })
 
@@ -58,8 +68,22 @@ const AddCharacter = (props) => {
                         <div>
                             <h4>Required</h4>
                             <div>
+                                <Form.Label>Image:</Form.Label>
+                                <Form.Select value={image} onChange={(e) => setImage(e.target.value)}>
+                                    <option value="none" selected>--Select an image--</option>
+                                    {
+                                        characterList.map((char, index) => {
+                                            return (
+                                                <option>{char.image}</option>
+                                            )
+                                        })
+                                    }
+                                </Form.Select>
+                            </div>
+                            <div>
                                 <Form.Label>Character:</Form.Label>
-                                <Form.Select id="card" value={card} onChange={(e) => setCard(e.target.value)}>
+                                <Form.Select value={name} onChange={(e) => setName(e.target.value)}>
+                                <option value="none" selected>--Select a Character--</option>
                                     {
                                         characterList.map((char, index) => {
                                             return (
@@ -67,6 +91,32 @@ const AddCharacter = (props) => {
                                             )
                                         })
                                     }
+                                </Form.Select>
+                            </div>
+                            <div>
+                                <Form.Label>Status:</Form.Label>
+                                <Form.Select value={status} onChange={(e) => setStatus(e.target.value)}>
+                                    <option value="none" selected>--Select a Status--</option>
+                                    <option>Alive</option>
+                                    <option>Dead</option>
+                                    <option>Unknown</option>
+                                </Form.Select>
+                            </div>
+                            <div>
+                                <Form.Label>Species:</Form.Label>
+                                <Form.Select value={species} onChange={(e) => setSpecies(e.target.value)}>
+                                    <option value="none" selected>--Select Species--</option>
+                                    <option>Alien</option>
+                                    <option>Human</option>
+                                </Form.Select>
+                            </div>
+                            <div>
+                                <Form.Label>Gender:</Form.Label>
+                                <Form.Select value={gender} onChange={(e) => setGender(e.target.value)}>
+                                    <option value="none" selected>--Select Gender--</option>
+                                    <option>Female</option>
+                                    <option>Male</option>
+                                    <option>Unknown</option>
                                 </Form.Select>
                             </div>
                             <div>
