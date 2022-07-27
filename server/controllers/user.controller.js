@@ -1,4 +1,3 @@
-require("dotenv").config();
 const User = require("../models/user.model")
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -15,7 +14,7 @@ const createUser = (req, res) => {
 
 const register = (req, res) => {
     User.create(req.body)
-        then(user => {
+        .then(user => {
             const userToken = jwt.sign({
                 id: user._id
             }, process.env.SECRET_KEY);

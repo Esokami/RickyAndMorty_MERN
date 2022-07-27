@@ -22,7 +22,7 @@ const Register = () => {
                 console.log('ress', res.data);
                 navigate('/characters');
             })
-            .catch((err) => {console.log('axios register error', err);setErrors(err.res.data.errors);});
+            .catch((err) => {console.log('axios register error', err)});
     }
     return (
         <div className="background-register">
