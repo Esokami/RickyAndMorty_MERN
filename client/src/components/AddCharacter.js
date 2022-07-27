@@ -61,8 +61,8 @@ const AddCharacter = (props) => {
 
 
     return (
-        <Container>
-            <div>
+        <div className='background-new'>
+            <div className='wrapper'>
                 <Form onSubmit={(onSubmitHandler)}>
                     <Form.Group>
                         <div>
@@ -129,7 +129,7 @@ const AddCharacter = (props) => {
                     <Button className='m-2' variant="warning" onClick={() => navigate("/dashboard")}>Cancel</Button>
                 </Form>
             </div>
-        </Container>
+        </div>
     )
 }
 

@@ -20,7 +20,7 @@ const CharacterList = (props) => {
     return (
         <div class="background-char">
             <div class="bar"><SearchBarAPI/></div>
-            <Link to="/dashboard">Return to Dashboard</Link>
+            <div className='link'><Link to="/dashboard">Return to Dashboard</Link></div>
             <div>
                 {characters.map((character, index)=>{
                     return (

@@ -19,10 +19,14 @@ const Dashboard = (props) => {
     }, []);
 
     return (
-        <div className="background-char">
+        <div className="background-dash">
             <div className="bar"><SearchBar/></div>
+            <div className='link'>
             <Link to="/characters">View Characters from API</Link>
+            </div>
+            <div className='link'>
             <Link to="/characters/add">Create a character</Link>
+            </div>
             <div>
                 {characters.map((character, index)=>{
                     return (
