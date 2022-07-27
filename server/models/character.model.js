@@ -15,7 +15,11 @@ const CharacterSchema = new mongoose.Schema ({
     likes: {
         type: Number,
         required: true
-    }
+    },
+    PostBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+    },
 });
 
 module.exports = mongoose.model("Character", CharacterSchema);

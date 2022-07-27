@@ -12,7 +12,7 @@ const UpdateUser = () => {
     const [characterData, setCharacterData] = useState(""); 
     const navigate = useNavigate();
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/pet/${id}`)
+        axios.get(`http://localhost:8000/api/user/${id}`)
             .then((res) => {console.log(res.data);setFirstName(res.data.firstName);setFirstName(res.data.lastName);setEmail(res.data.email);})
             .catch((err) => console.log(err));
     }, []);
@@ -33,28 +33,33 @@ const UpdateUser = () => {
             .catch((err) => {console.log(err);});
     };
     return(
+
+        <div  className="background-edit">
+            <div className='wrapper3'>
         <form onSubmit={subtmitBot}>
             <div className="user-form">
                 <div className="form-group">
-                    <label htmlFor="firstName">First Name:</label>
-                    <input type="text"className="form-control" onChange={(e) => setFirstName(e.target.value)}id="firstName"value={firstName}/>
+                    <input  placeholder='First Name' type="text"className="inputs" onChange={(e) => setFirstName(e.target.value)}id="firstName"value={firstName}/>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="LastName">Last Name:</label>
-                    <input type="text"className="form-control" onChange={(e) => setLastName(e.target.value)}id="LastName"value={lastName}/>
+                    <input placeholder='Last Name' type="text"className="inputs" onChange={(e) => setLastName(e.target.value)}id="LastName"value={lastName}/>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="email">Email:</label>
-                    <input type="text"className="form-control" onChange={(e) => setEmail(e.target.value)}id="email"value={email}/>
+                    <input placeholder='Email' type="text"className="inputs" onChange={(e) => setEmail(e.target.value)}id="email"value={email}/>
                 </div>
                 <button className="btn btn-primary">Update User</button>
             </div>
-            <div className="card">
-                <p>Card Name: </p>
-                <p>Details about: {characterData.name}</p>
-                <button className="adopt" onClick={() => deletecard(characterData._id)}>Delete</button>
-            </div>
+            
+                <div className="cardInfo">
+                <p>Card Name </p>
+                </div>
+                <div className="cardInfo">
+                <p>Card Details {characterData.name}</p>
+                </div>
+                <button className="btn btn-danger" onClick={() => deletecard(characterData._id)}>Delete</button>
         </form>
+        </div>
+        </div>
     );
 };
 
