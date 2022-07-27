@@ -23,7 +23,7 @@ const Login = () => {
         })
         .then((res) => {
             console.log('user successfully logged in', res.data);
-            navigate('/dashboard');
+            navigate('/characters');
         })
         .catch((err) => console.error('login', err));
     }

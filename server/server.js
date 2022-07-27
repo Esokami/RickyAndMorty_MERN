@@ -17,4 +17,3 @@ require("./config/mongoose.config");
 require("./routes/character.routes")(app);
 require("./routes/user.routes")(app);
 
-

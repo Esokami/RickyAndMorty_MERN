@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from  'react';
 import { useState } from "react";
 import axios from "axios";
@@ -21,10 +20,12 @@ const Register = () => {
         axios.post('http://localhost:8000/api/register', user,{withCredentials: true,})
             .then((res) => {
                 console.log('ress', res.data);
-                navigate('/dashboard');
+                navigate('/characters');
             })
-            .catch((err) => {console.log('axios register error', err)});
-    }
+            .catch((err) => {console.log('axios register error', err);setErrors(err.res.data.errors);
+        });
+            
+    };
     return (
         <div className="background-register">
             <nav className="navbar navbar-expand-lg navbar-dark shadow-5-strong">
@@ -63,5 +64,4 @@ const Register = () => {
         </div>
     );
 };
-
 export default Register;

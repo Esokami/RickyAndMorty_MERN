@@ -1,16 +1,7 @@
+
 const User = require("../models/user.model")
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-
-const createUser = (req, res) => {
-    User.create(req.body) 
-    .then((newUser) => {
-        res.json({newUser});
-    })
-    .catch((err) => {
-        res.status(400).json({err});
-    });
-};
 
 const register = (req, res) => {
     User.create(req.body)
@@ -18,7 +9,6 @@ const register = (req, res) => {
             const userToken = jwt.sign({
                 id: user._id
             }, process.env.SECRET_KEY);
-
             res
                 .cookie("usertoken", userToken, secret, {
                     httpOnly: true
@@ -28,28 +18,40 @@ const register = (req, res) => {
         .catch(err => res.json(err));
     };
 
-const login = async(req, res) => {
-        const user = await User.findOne({ email: req.body.email });
-
-        if(user === null) {
-            return res.sendStatus(400);
-        }
-
-        const correctPassword = await bcrypt.compare(req.body.password, user.password);
-
-        if(!correctPassword) {
-            return res.sendStatus(400);
-        }
-
-        const userToken = jwt.sign({
-            id: user._id
-        }, process.env.SECRET_KEY)
-
-        res
-            .cookie("usertoken", userToken, secret, {
-                httpOnly: true
-            })
-            .json({ msg: "success!" });
+const login = (req, res) => {
+    User.findOne({email: req.body.email})
+        .then((userRecord) => {
+            if(userRecord === null) {
+                res.status(400).json({message: "Oops. That didn't work."})
+            }
+            else {
+                bcrypt.compare(req.body.password, useRecord.password)
+                    .then((isPasswordValid) => {
+                        if(isPasswordValid) {
+                            console.log("Password looks good!");
+                            res.cookie(
+                                "usertoken",
+                                jwt.sign(
+                                    {
+                                        id: userRecord._id,
+                                        email: userRecord.email,
+                                        username: userRecord.username
+                                    },
+                                    process.env.SECRET_KEY
+                                ),
+                                {
+                                    httpOnly: true,
+                                    expires: new Date(Date.now() + 10000000)
+                                }
+                            ).json({
+                                message: "You've Successfully logged in!",
+                                userLoggedIn: userRecord.username,
+                                userId: userRecord._id
+                            })
+                        }
+                    })
+            }
+        })
     };
 
 const logout = (req, res) => {
@@ -66,7 +68,6 @@ const getLoggedInUser = (req, res) => {
         res.status(400).json({err});
     });
 };
-
 const updateUser = (req, res) => {
     User.findOneAndUpdate({_id: req.params.id}, req.body, {
         new: true,
@@ -79,7 +80,6 @@ const updateUser = (req, res) => {
         res.status(400).json({err});
     });
 };
-
 const deleteUser = (req, res) => {
     User.deleteOne({_id: req.params.id})
     .then((deletedUser) => {
@@ -89,9 +89,7 @@ const deleteUser = (req, res) => {
         res.status(400).json({err});
     });
 };
-
 module.exports = {
-    createUser,
     getLoggedInUser,
     updateUser,
     deleteUser,
