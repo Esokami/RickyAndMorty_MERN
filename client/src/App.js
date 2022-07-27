@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import CharacterList from './components/CharacterList';
 import ViewCharacter from './components/ViewCharacter';

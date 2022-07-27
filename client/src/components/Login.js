@@ -4,8 +4,6 @@ import React from  'react';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-
-<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Roboto:wght@300&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet"></link>
 /**
  * It's a function that takes in a setLogin function as a prop, and returns a form that when submitted,
  * sends a post request to the server with the user's email and password, and if the request is
@@ -26,9 +24,17 @@ const Login = () => {
             navigate('/characters');
         })
         .catch((err) => console.error('login', err));
-    }
+    };
+    const handleLogout = () => {
+        axios
+            .post("http://localhost:8000/api/logout", {}, { withCredentials: true })
+            .then((response) => console.log(response))
+            .catch((err) => console.log(err));
+    };
     return (
         <div className="background">
+            <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Roboto:wght@300&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet"></link>
+
             <nav className="navbar navbar-expand-lg navbar-dark shadow-5-strong">
                 <a className="navbar-brand">RickyAndMorty</a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,11 +50,12 @@ const Login = () => {
             </div>
             </nav>
         <div className="wrapper">
-        <form onSubmit={handleSubmit}>
-            <input className="inputs" type="email" name="email" placeholder='Email' value={user.email} onChange={handleChange}/>
-            <input className="inputs" type="password" name="password"  placeholder='Password' value={user.password} onChange={handleChange}/>
-                <button className="login-reg-button"type="submit">Login</button>
-        </form>
+            <form onSubmit={handleSubmit}>
+                <input className="inputs" type="email" name="email" placeholder='Email' value={user.email} onChange={handleChange}/>
+                <input className="inputs" type="password" name="password"  placeholder='Password' value={user.password} onChange={handleChange}/>
+                    <button className="login-reg-button"type="submit">Login</button>
+            </form>
+            <button onClick={() => handleLogout()}>LOGOUT</button>
         </div>
         </div>
     );

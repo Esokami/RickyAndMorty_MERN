@@ -2,25 +2,14 @@ const mongoose = require("mongoose");
 
 const CharacterSchema = new mongoose.Schema ({
 
-    image: {
+    // image: {
+    //     type: String,
+    //     required: true
+    // },
+
+    card: {
         type: String,
-        required: true
-    },
-    name: {
-        type: String,
-        required: true
-    },
-    status: {
-        type: String,
-        required: true
-    },
-    species: {
-        type: String, 
-        required: true
-    },
-    gender: {
-        type: String,
-        required: true
+        requried: true
     },
     //Likes can be incremented or decremented, instead having a slot for likes AND dislike
     likes: {
@@ -31,6 +20,7 @@ const CharacterSchema = new mongoose.Schema ({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
     },
+    //this will connect character to user database
 });
 
 module.exports = mongoose.model("Character", CharacterSchema);
