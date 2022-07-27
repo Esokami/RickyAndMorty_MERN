@@ -19,19 +19,15 @@ const ViewCharacter = (props) => {
 
     return (
         <div>
-            <div>
-                <h2>{character.name}</h2>
+        <div className='background-apichar'>
+            <div className='wrapper4'>    
+            <img src={character.image}></img> 
+                        <h3>{character.name} </h3>
+                        <h5>{character.status} </h5>
+                        <h5>Species: {character.species}</h5>
+                        <h5>Gender: {character.gender}</h5>
             </div>
-            <div>
-                <ul style={{listStyleType: "none"}}>
-                        <li> 
-                            <img src={character.image}></img> <br/>
-                            {character.status} <br/>
-                            {character.species} <br/>
-                            {character.gender} <br/>
-                        </li>
-                    </ul>
-            </div>
+        </div>
             <Link to="/dashboard">Return to Dashboard</Link>
         </div>
     )

@@ -172,3 +172,28 @@ h3,h5{
   height: 937px;
 }
 
+.wrapper4 {
+  width: 340px;
+  height: 550px;
+  padding: 20px;
+  position: absolute;
+  top: 20%;
+  left: 42%;
+  border-radius: 20px;
+  background: rgba(238, 235, 235, 0.5);
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  background-image: url(https://cdn.europosters.eu/image/1300/art-photo/rick-and-morty-space-i115643.jpg);
+  
+}
+
+.wrapper4 img{
+  border: 2px solid rgb(21, 175, 7);
+  border-radius: 300px;
+  box-shadow: 0 15px 25px rgba(28, 109, 4, 0.6);
+}
+
+.background-apichar{
+  background-image: url(https://static4.depositphotos.com/1005844/382/i/600/depositphotos_3820516-stock-photo-stars.jpg);
+  width: auto;
+  height: 937px;
+}
