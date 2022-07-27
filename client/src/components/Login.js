@@ -21,7 +21,7 @@ const Login = () => {
         })
         .then((res) => {
             console.log('user successfully logged in', res.data);
-            navigate('/characters');
+            navigate('/dashboard');
         })
         .catch((err) => console.error('login', err));
     }
