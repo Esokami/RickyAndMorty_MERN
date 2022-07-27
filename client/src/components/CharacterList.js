@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import SearchBar from './SearchBar'; 
+import SearchBarAPI from './SearchBarAPI';
 import {Link} from 'react-router-dom';
 // import ReactPaginate from 'react-paginate';
 
@@ -19,7 +19,7 @@ const CharacterList = (props) => {
 
     return (
         <div class="background-char">
-            <div class="bar"><SearchBar/></div>
+            <div class="bar"><SearchBarAPI/></div>
             <div className='link'><Link to="/dashboard">Return to Dashboard</Link></div>
             <div>
                 {characters.map((character, index)=>{

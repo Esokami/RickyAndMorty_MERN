@@ -17,10 +17,13 @@ const Register = () => {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios
-            .post('http://localhost:8000/api/register', user,{withCredentials: true,})
-            .then((res) => {console.log('ress', res.data);navigate('/login');})
-            .catch((err) => console.log('axios register error', err));
+        
+        axios.post('http://localhost:8000/api/register', user,{withCredentials: true,})
+            .then((res) => {
+                console.log('ress', res.data);
+                navigate('/dashboard');
+            })
+            .catch((err) => {console.log('axios register error', err)});
     }
     return (
         <div className="background-register">

@@ -4,8 +4,6 @@ import React from  'react';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-
-<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Roboto:wght@300&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet"></link>
 /**
  * It's a function that takes in a setLogin function as a prop, and returns a form that when submitted,
  * sends a post request to the server with the user's email and password, and if the request is
@@ -22,7 +20,9 @@ const Login = () => {
             withCredentials: true,
         })
         .then((res) => {
-            console.log('user successfully logged in', res.data);navigate('/CharacterList');})
+            console.log('user successfully logged in', res.data);
+            navigate('/dashboard');
+        })
         .catch((err) => console.error('login', err));
     };
     const handleLogout = () => {
@@ -33,6 +33,8 @@ const Login = () => {
     };
     return (
         <div className="background">
+            <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Roboto:wght@300&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet"></link>
+
             <nav className="navbar navbar-expand-lg navbar-dark shadow-5-strong">
                 <a className="navbar-brand">RickyAndMorty</a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
