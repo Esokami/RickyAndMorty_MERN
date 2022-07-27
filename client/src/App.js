@@ -13,6 +13,7 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<Register/>}></Route>
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/characters/add" element={<AddCharacter/>}/>
           <Route path="/characters/:id" element={<ViewCharacter/>}/>

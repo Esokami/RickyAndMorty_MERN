@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import SearchBar from './SearchBar';
 import {Link, useNavigate} from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 // import ReactPaginate from 'react-paginate';
 
 const Dashboard = (props) => {
@@ -17,6 +18,19 @@ const Dashboard = (props) => {
                 console.log(err);
             })
     }, []);
+
+    const deleteCharacter = (characterId) => {
+        axios.delete('http://localhost:8000/api/character/' + characterId, {
+            withCredentials: true,
+        })
+            .then((res) => {
+                const newCharacterList = characters.filter((character, index) => character._id !== characterId);
+                setCharacters(newCharacterList);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
 
     return (
         <div className="background-dash">
@@ -38,6 +52,7 @@ const Dashboard = (props) => {
                                 <h5>Species: {character.species}</h5>
                                 <h5>Gender: {character.gender}</h5>
                                 <h5>Likes: {character.likes}</h5>
+                                <Button variant="danger" onClick={() => {deleteCharacter(character._id)}}>Delete</Button>
                             </div>
                         </div>
                     )
