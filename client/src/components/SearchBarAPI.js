@@ -3,15 +3,15 @@ import axios from 'axios';
 import {Link} from 'react-router-dom';
 import { FcSearch } from "react-icons/fc";
 
-const SearchBar = (props) => {
+const SearchBarAPI = (props) => {
     const [characters, setCharacters] = useState([]);
     const [filterData, setFilterData] = useState([]);
 
 
     useEffect(() => {
-        axios.get('http://localhost:8000/api/character')
+        axios.get('https://rickandmortyapi.com/api/character')
             .then((res) => {
-                setCharacters(res.data);
+                setCharacters(res.data.results);
             })
             .catch((err) => {
                 console.log(err);
@@ -41,7 +41,7 @@ const SearchBar = (props) => {
                             <div>
                             {
                                 filterData.slice(0, 15).map((character, index) => {
-                                    return <Link to={`/characters/${character._id}`} target="_blank" style={{textDecoration: 'none'}}>
+                                    return <Link to={`/characters/api/${character.id}`} target="_blank" style={{textDecoration: 'none'}}>
                                         <p>{character.name}</p>
                                     </Link>
                                 })
@@ -54,4 +54,4 @@ const SearchBar = (props) => {
     )
 }
 
-export default SearchBar;
+export default SearchBarAPI;
