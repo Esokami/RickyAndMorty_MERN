@@ -24,7 +24,13 @@ const Login = () => {
         .then((res) => {
             console.log('user successfully logged in', res.data);navigate('/CharacterList');})
         .catch((err) => console.error('login', err));
-    }
+    };
+    const handleLogout = () => {
+        axios
+            .post("http://localhost:8000/api/logout", {}, { withCredentials: true })
+            .then((response) => console.log(response))
+            .catch((err) => console.log(err));
+    };
     return (
         <div className="background">
             <nav className="navbar navbar-expand-lg navbar-dark shadow-5-strong">
@@ -42,11 +48,12 @@ const Login = () => {
             </div>
             </nav>
         <div className="wrapper">
-        <form onSubmit={handleSubmit}>
-            <input className="inputs" type="email" name="email" placeholder='Email' value={user.email} onChange={handleChange}/>
-            <input className="inputs" type="password" name="password"  placeholder='Password' value={user.password} onChange={handleChange}/>
-                <button className="login-reg-button"type="submit">Login</button>
-        </form>
+            <form onSubmit={handleSubmit}>
+                <input className="inputs" type="email" name="email" placeholder='Email' value={user.email} onChange={handleChange}/>
+                <input className="inputs" type="password" name="password"  placeholder='Password' value={user.password} onChange={handleChange}/>
+                    <button className="login-reg-button"type="submit">Login</button>
+            </form>
+            <button onClick={() => handleLogout()}>LOGOUT</button>
         </div>
         </div>
     );

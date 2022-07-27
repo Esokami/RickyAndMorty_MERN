@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import SearchBar from './SearchBar';
+import SearchBar from './SearchBar'; 
+import {Link} from 'react-router-dom';
 // import ReactPaginate from 'react-paginate';
 
 const CharacterList = (props) => {
@@ -17,23 +18,22 @@ const CharacterList = (props) => {
     }, []);
 
     return (
-        <div>
-            <SearchBar/>
+        <div class="background-char">
+            <div class="bar"><SearchBar/></div>
+            <div className='link'><Link to="/dashboard">Return to Dashboard</Link></div>
             <div>
                 {characters.map((character, index)=>{
                     return (
-                    <div key={index}>
-                        <ul style={{listStyleType: "none"}}>
-                            <li> 
-                                {character.name} <br/>
-                                <img src={character.image}></img> <br/>
-                                {character.status} <br/>
-                                {character.species} <br/>
-                                {character.gender} <br/>
-                                {character.origin.name}
-                                </li>
-                        </ul>
+                <div class= "grids">
+                    <div class="wrapper2" key={index}>
+                        <img src={character.image}></img> 
+                        <h3>{character.name} </h3>
+                        <h5>{character.status} </h5>
+                        <h5>Species: {character.species}</h5>
+                        <h5>Gender: {character.gender}</h5>
+                        <h5>Home: {character.origin.name}</h5>
                     </div>
+                </div>
                     )
                 })}
             </div>
