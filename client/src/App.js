@@ -17,8 +17,8 @@ function App() {
           <Route path="/characters/:id" element={<ViewCharacter/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/login" element={<Login/>}/>
-          <Route path="/updateUser" element={<UpdateUser/>}/>
-          <Route path="/updateCharacter" element={<UpdateCharacter/>}/>
+          <Route path="/api/user/:id" element={<UpdateUser/>}/>
+          <Route path="/api/character/:id" element={<UpdateCharacter/>}/>
         </Routes>
       </BrowserRouter>
     </div>

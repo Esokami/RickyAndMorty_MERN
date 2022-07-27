@@ -22,7 +22,7 @@ const UpdateCharacter = (props) => {
     }, []);
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        axios.put(`http://localhost:8000/api/characters/${id}`, {card,likes,characterList})  
+        axios.put(`http://localhost:8000/api/character/${id}`, {card,likes,characterList})  
             .then((res) => {console.log(res);console.log(res.data);navigate("/dashboard");setCharacters([...characters, res.data]);})
             .catch((err) => {console.log(err);setErrors(err);})
     };
