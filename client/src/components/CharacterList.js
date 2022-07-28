@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import SearchBarAPI from './SearchBarAPI';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 // import ReactPaginate from 'react-paginate';
 
 const CharacterList = (props) => {
     const [characters, setCharacters] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         axios.get('https://rickandmortyapi.com/api/character')
@@ -26,7 +27,7 @@ const CharacterList = (props) => {
                     return (
                 <div class= "grids">
                     <div class="wrapper2" key={index}>
-                        <img src={character.image}></img> 
+                        <img src={character.image} onClick={() => navigate(`/characters/api/${character.id}`)}></img> 
                         <h3>{character.name} </h3>
                         <h5>{character.status} </h5>
                         <h5>Species: {character.species}</h5>

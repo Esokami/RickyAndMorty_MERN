@@ -21,7 +21,7 @@ const Register = () => {
         axios.post('http://localhost:8000/api/register', user,{withCredentials: true,})
             .then((res) => {
                 console.log('ress', res.data);
-                navigate('/characters');
+                navigate('/dashboard');
             })
             .catch((err) => {console.log('axios register error', err);setErrors(err.res.data.errors);
         });

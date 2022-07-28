@@ -1,4 +1,3 @@
-
 const User = require("../models/user.model")
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -22,10 +21,10 @@ const login = (req, res) => {
     User.findOne({email: req.body.email})
         .then((userRecord) => {
             if(userRecord === null) {
-                res.status(400).json({message: "Oops. That didn't work."})
+                return res.status(400).json({message: "Oops. That didn't work."})
             }
             else {
-                bcrypt.compare(req.body.password, useRecord.password)
+                bcrypt.compare(req.body.password, userRecord.password)
                     .then((isPasswordValid) => {
                         if(isPasswordValid) {
                             console.log("Password looks good!");
@@ -47,12 +46,25 @@ const login = (req, res) => {
                                 message: "You've Successfully logged in!",
                                 userLoggedIn: userRecord.username,
                                 userId: userRecord._id
-                            })
+                            });
                         }
+                        else{
+                            res.status(400).json({message: "Incorrect Password"});
+                        }
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                        res.status(400).json({message: "Incorrect Password"})
+                        res.status(400).json(err)
                     })
             }
         })
-    };
+        .catch((err) => {
+            console.log(err);
+            res.status(400).json({message: "Incorrect Password"})
+            res.status(400).json(err)
+        })
+    }
 
 const logout = (req, res) => {
         res.clearCookie('usertoken');
