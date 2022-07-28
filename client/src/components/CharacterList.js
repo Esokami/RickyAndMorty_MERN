@@ -20,8 +20,21 @@ const CharacterList = (props) => {
 
     return (
         <div class="background-char">
+            
+            <nav className="navbar navbar-expand-lg navbar-dark shadow-5-strong">
+                <a className="navbar-brand">RickyAndMorty</a>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul className="navbar-nav mr-auto">
+                <li className="nav-item">
+                    <a className="nav-link" href="/dashboard">Return To Dashboard</a>
+                </li>
+                </ul>  
+            </div>
+            </nav>
             <div class="bar"><SearchBarAPI/></div>
-            <div className='link'><Link to="/dashboard">Return to Dashboard</Link></div>
             <div>
                 {characters.map((character, index)=>{
                     return (

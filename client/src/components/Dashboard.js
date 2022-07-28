@@ -39,14 +39,28 @@ const Dashboard = (props) => {
     };
     return (
         <div className="background-dash">
+           
+            <nav className="navbar navbar-expand-lg navbar-dark shadow-5-strong">
+                <a className="navbar-brand">RickyAndMorty</a>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul className="navbar-nav mr-auto">
+                <li className="nav-item">
+                    <a className="nav-link" href="/characters">API Characters</a>
+                </li>
+                <li className="nav-item">
+                    <a className="nav-link" href="/characters/add">Create A Character</a>
+                </li>
+                <li>
+                    <button className='button' onClick={() => handleLogout()}>Log-Out</button>
+                </li>
+                </ul>  
+            </div>
+            </nav>
             <div className="bar"><SearchBar/></div>
-            <div className='link'>
-            <Link to="/characters">View Characters from API</Link>
-            </div>
-            <div className='link'>
-            <Link to="/characters/add">Create a character</Link>
-            </div>
-            <button onClick={() => handleLogout()}>LOGOUT</button>
+            
             <div>
                 {characters.map((character, index)=>{
                     return (

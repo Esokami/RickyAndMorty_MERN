@@ -38,7 +38,7 @@ const SearchBarAPI = (props) => {
                 <div>
                     {
                         filterData.length !== 0 && (
-                            <div>
+                            <div className='output'>
                             {
                                 filterData.slice(0, 15).map((character, index) => {
                                     return <Link to={`/characters/api/${character.id}`} target="_blank" style={{textDecoration: 'none'}}>
