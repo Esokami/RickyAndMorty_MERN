@@ -25,7 +25,7 @@ const login = (req, res) => {
                 res.status(400).json({message: "Oops. That didn't work."})
             }
             else {
-                bcrypt.compare(req.body.password, useRecord.password)
+                bcrypt.compare(req.body.password, userRecord.password)
                     .then((isPasswordValid) => {
                         if(isPasswordValid) {
                             console.log("Password looks good!");
