@@ -7,6 +7,7 @@ import AddCharacter from './components/AddCharacter';
 import UpdateUser from './components/UpdateUser';
 import Dashboard from './components/Dashboard';
 import ViewCharacterAPI from './components/ViewCharacterAPI';
+import UpdateCharacter from './components/UpdateCharacter';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/register" element={<Register/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/updateUser" element={<UpdateUser/>}/>
+          <Route path="/updateCharacter" element={<UpdateCharacter/>}/>
           <Route path="/characters" element={<CharacterList/>}/>
           <Route path="/characters/api/:id" element={<ViewCharacterAPI/>}/>
         </Routes>

@@ -31,6 +31,18 @@ const Dashboard = (props) => {
                 console.log(err);
             })
     }
+    const updateCharacter = (characterId) => {
+        axios.delete('http://localhost:8000/api/character/' + characterId, {
+            withCredentials: true,
+        })
+            .then((res) => {
+                const newCharacterList = characters.filter((character, index) => character._id !== characterId);
+                setCharacters(newCharacterList);navigate("/updateCharacter");
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
 
     return (
         <div className="background-dash">
@@ -53,6 +65,7 @@ const Dashboard = (props) => {
                                 <h5>Gender: {character.gender}</h5>
                                 <h5>Likes: {character.likes}</h5>
                                 <Button variant="danger" onClick={() => {deleteCharacter(character._id)}}>Delete</Button>
+                                <button className="btn btn-danger" onClick={() => updateCharacter(character._id)}>Edit</button>
                             </div>
                         </div>
                     )
