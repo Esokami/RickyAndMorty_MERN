@@ -20,6 +20,7 @@ const ViewCharacter = (props) => {
     return (
         <div>
         <div className='background-apichar'>
+            <div className='link'><Link to="/dashboard">Return to Dashboard</Link></div>
             <div className='wrapper4'>    
             <img src={character.image}></img> 
                         <h3>{character.name} </h3>
@@ -28,7 +29,6 @@ const ViewCharacter = (props) => {
                         <h5>Gender: {character.gender}</h5>
             </div>
         </div>
-            <Link to="/dashboard">Return to Dashboard</Link>
         </div>
     )
 }
