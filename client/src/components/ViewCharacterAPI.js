@@ -21,8 +21,22 @@ const ViewCharacterAPI = (props) => {
 
     return (
         <div className='background-apichar'>
-            <div className='link'><Link to="/characters">Return to API Characters</Link></div>
-            <div className='link'><Link to="/dashboard">Return to Dashboard</Link></div>
+            <nav className="navbar navbar-expand-lg navbar-dark shadow-5-strong">
+                <a className="navbar-brand">RickyAndMorty</a>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul className="navbar-nav mr-auto">
+                <li className="nav-item">
+                    <a className="nav-link" href="/dashboard">Return To Dashboard</a>
+                </li>
+                <li className="nav-item">
+                    <a className="nav-link" href="/characters">Return To API Characters</a>
+                </li>
+                </ul>  
+            </div>
+            </nav>
             <div className='wrapper4'>    
             <img src={character.image}></img> 
                         <h3>{character.name} </h3>

@@ -38,7 +38,7 @@ const SearchBar = (props) => {
                 <div>
                     {
                         filterData.length !== 0 && (
-                            <div>
+                            <div className='output'>
                             {
                                 filterData.slice(0, 15).map((character, index) => {
                                     return <Link to={`/characters/${character._id}`} target="_blank" style={{textDecoration: 'none'}}>

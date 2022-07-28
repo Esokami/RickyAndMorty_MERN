@@ -197,3 +197,25 @@ h3,h5{
   width: auto;
   height: 937px;
 }
+
+.button{
+  width: 100px;
+  padding: 5px;
+  border-radius: 25px;
+  background-color: rgb(231, 48, 48);
+  margin-left: 1350px;
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+}
+li{
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+}
+
+::placeholder{
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+}
+
+.output{
+  background: rgba(255, 255, 255, 0.6) ;
+  width: 660px;
+  border-radius: 8px;
+}
