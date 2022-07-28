@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, useParams} from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 const UpdateCharacter = (props) => {
-    const {characters, setCharacters} = props;
+    const {id} = useParams();
     const [image, setImage] = useState("");
     const [name, setName] = useState("");
     const [status, setStatus] = useState("");
@@ -18,7 +18,22 @@ const UpdateCharacter = (props) => {
     const navigate = useNavigate();
     const [errors, setErrors] = useState({});
 
-    //Getting Characters from API
+    useEffect(() => {
+        axios.get('http://localhost:8000/api/character/' + id)
+            .then((res) => {
+                console.log(res);
+                setImage(res.data.image);
+                setName(res.data.name);
+                setStatus(res.data.status);
+                setSpecies(res.data.species);
+                setGender(res.data.gender);
+                setLikes(res.data.likes);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }, []);
+
     useEffect(() => {
         axios.get('https://rickandmortyapi.com/api/character')
             .then((res) => {
@@ -29,12 +44,10 @@ const UpdateCharacter = (props) => {
             })
     }, []);
 
-    
-
     const onSubmitHandler = (e) => {
         e.preventDefault();
 
-        axios.post('http://localhost:8000/api/character', {
+        axios.put('http://localhost:8000/api/character/' + id, {
             image,
             name,
             status,
@@ -47,7 +60,6 @@ const UpdateCharacter = (props) => {
                 console.log(res);
                 console.log(res.data);
                 navigate("/dashboard");
-                setCharacters([...characters, res.data]);
             })
             .catch((err) => {
                 console.log(err);
@@ -117,7 +129,7 @@ const UpdateCharacter = (props) => {
                             </div>
                             <div>
                                 <Form.Label>Likes:</Form.Label>
-                                <Form.Control type="number" onChange={(e) => setLikes(e.target.value)}></Form.Control>
+                                <Form.Control type="number" value={likes} onChange={(e) => setLikes(e.target.value)}></Form.Control>
                             </div>
                         </div>
                     </Form.Group>

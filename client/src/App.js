@@ -21,7 +21,7 @@ function App() {
           <Route path="/register" element={<Register/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/updateUser" element={<UpdateUser/>}/>
-          <Route path="/updateCharacter" element={<UpdateCharacter/>}/>
+          <Route path="/updateCharacter/:id" element={<UpdateCharacter/>}/>
           <Route path="/characters" element={<CharacterList/>}/>
           <Route path="/characters/api/:id" element={<ViewCharacterAPI/>}/>
         </Routes>
