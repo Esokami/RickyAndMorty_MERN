@@ -1,7 +1,7 @@
 const User = require("../models/user.model")
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-
+const SECRET = process.env.JWT_KEY; 
 const register = (req, res) => {
     User.create(req.body)
         .then(user => {
@@ -17,54 +17,44 @@ const register = (req, res) => {
         .catch(err => res.json(err));
     };
 
-const login = (req, res) => {
-    User.findOne({email: req.body.email})
-        .then((userRecord) => {
-            if(userRecord === null) {
-                return res.status(400).json({message: "Oops. That didn't work."})
+    const login = async(req,res)=> {
+        const userFile = await User.findOne({email: req.body.email});
+        if(!userFile){
+            res.status(400).json({message: "Wrong password or email"});
+        }else{
+            try{
+                const validPw = await bcrypt.compare(req.body.password, userFile.password)
+                if(!validPw){
+                    res.status(400).json({message: "Wrong password or email"});
+                }else{
+                    const userToken = jwt.sign(
+                        {
+                            _id:userFile._id,
+                            email:userFile.email,
+                            firstName:userFile.firstName,
+                            lastName:userFile.lastName,
+                        },
+                        SECRET,
+                    );
+                    console.log('TOKEN::' , userToken);
+                    res
+                        .cookie('userToken', userToken,{httpOnly: true,expires: new Date(Date.now() + 100000),})
+                        .json({
+                            successMessage: 'User login successfully', 
+                            user: {
+                                _id:userFile._id,
+                                email:userFile.email,
+                                firstName:userFile.firstName,
+                                lastName:userFile.lastName,
+                            },
+                        });
+                }
+            }catch(e){
+                console.log("login error", e)
+                res.status(400).json({message: "Wrong password or email"});
             }
-            else {
-                bcrypt.compare(req.body.password, userRecord.password)
-                    .then((isPasswordValid) => {
-                        if(isPasswordValid) {
-                            console.log("Password looks good!");
-                            res.cookie(
-                                "usertoken",
-                                jwt.sign(
-                                    {
-                                        id: userRecord._id,
-                                        email: userRecord.email,
-                                        username: userRecord.username
-                                    },
-                                    process.env.SECRET_KEY
-                                ),
-                                {
-                                    httpOnly: true,
-                                    expires: new Date(Date.now() + 10000000)
-                                }
-                            ).json({
-                                message: "You've Successfully logged in!",
-                                userLoggedIn: userRecord.username,
-                                userId: userRecord._id
-                            });
-                        }
-                        else{
-                            res.status(400).json({message: "Incorrect Password"});
-                        }
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                        res.status(400).json({message: "Incorrect Password"})
-                        res.status(400).json(err)
-                    })
-            }
-        })
-        .catch((err) => {
-            console.log(err);
-            res.status(400).json({message: "Incorrect Password"})
-            res.status(400).json(err)
-        })
-    }
+        }
+    };
 
 const logout = (req, res) => {
         res.clearCookie('usertoken');

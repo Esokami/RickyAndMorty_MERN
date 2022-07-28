@@ -30,10 +30,13 @@ const Dashboard = (props) => {
             .catch((err) => {
                 console.log(err);
             })
-    }
-
-
-
+    };
+    const handleLogout = () => {
+        axios
+            .post("http://localhost:8000/api/logout", {}, { withCredentials: true })
+            .then((response) => console.log(response));navigate("/")
+            .catch((err) => console.log(err));
+    };
     return (
         <div className="background-dash">
             <div className="bar"><SearchBar/></div>
@@ -43,6 +46,7 @@ const Dashboard = (props) => {
             <div className='link'>
             <Link to="/characters/add">Create a character</Link>
             </div>
+            <button onClick={() => handleLogout()}>LOGOUT</button>
             <div>
                 {characters.map((character, index)=>{
                     return (
