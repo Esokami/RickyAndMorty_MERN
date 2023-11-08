@@ -11,13 +11,13 @@ const UpdateUser = () => {
     const [email, setEmail] = useState("");
     const navigate = useNavigate();
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/user/${id}`)
+        axios.get(`https://rickandmortycardcreator-e730b1c33bb6.herokuapp.com/api/user/${id}`)
             .then((res) => {console.log(res.data);setFirstName(res.data.firstName);setFirstName(res.data.lastName);setEmail(res.data.email);})
             .catch((err) => console.log(err));
     }, []);
     const subtmitBot = (e) => {
         e.preventDefault();
-        axios.put(`http://localhost:8000/api/user/${id}`, {firstName, lastName,email})
+        axios.put(`https://rickandmortycardcreator-e730b1c33bb6.herokuapp.com/api/user/${id}`, {firstName, lastName,email})
             .then((res) => {console.log(res);console.log(res.data);navigate("/");})
             .catch((err) => {console.log(err);});
     };

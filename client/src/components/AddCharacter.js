@@ -37,7 +37,7 @@ const AddCharacter = (props) => {
     const onSubmitHandler = (e) => {
         e.preventDefault();
 
-        axios.post('http://localhost:8000/api/character', {
+        axios.post('https://rickandmortycardcreator-e730b1c33bb6.herokuapp.com/api/character', {
             image,
             name,
             status,

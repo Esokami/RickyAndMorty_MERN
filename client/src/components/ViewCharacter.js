@@ -7,7 +7,7 @@ const ViewCharacter = (props) => {
     const {id} = useParams();
 
     useEffect(() => {
-        axios.get('http://localhost:8000/api/character/' + id)
+        axios.get('https://rickandmortycardcreator-e730b1c33bb6.herokuapp.com/api/character/' + id)
             .then((res) => {
                 console.log(res.data);
                 setCharacter(res.data);
