@@ -18,7 +18,7 @@ const Login = () => {
     const handleChange = (e) => {setUser({ ...user, [e.target.name]: e.target.value});};
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8000/api/login', user,{
+        axios.post('https://rick-and-morty-card-creator-3ff0ed935b22.herokuapp.com/api/login', user,{
             withCredentials: true,
         })
         .then((res) => {

@@ -18,7 +18,7 @@ const Register = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        axios.post('http://localhost:8000/api/register', user,{withCredentials: true,})
+        axios.post('https://rick-and-morty-card-creator-3ff0ed935b22.herokuapp.com/api/register', user,{withCredentials: true,})
             .then((res) => {
                 console.log('ress', res.data);
                 navigate('/dashboard');
