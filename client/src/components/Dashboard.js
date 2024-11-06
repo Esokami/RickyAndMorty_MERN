@@ -10,7 +10,7 @@ const Dashboard = (props) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get('https://rickandmortycardcreator-e730b1c33bb6.herokuapp.com/api/character')
+        axios.get('https://rick-and-morty-card-creator-3ff0ed935b22.herokuapp.com/api/character')
             .then((res) => {
                 setCharacters(res.data);
             })
@@ -20,7 +20,7 @@ const Dashboard = (props) => {
     }, []);
 
     const deleteCharacter = (characterId) => {
-        axios.delete('https://rickandmortycardcreator-e730b1c33bb6.herokuapp.com/api/character/' + characterId, {
+        axios.delete('https://rick-and-morty-card-creator-3ff0ed935b22.herokuapp.com/api/character/' + characterId, {
             withCredentials: true,
         })
             .then((res) => {
@@ -33,7 +33,7 @@ const Dashboard = (props) => {
     };
     const handleLogout = () => {
         axios
-            .post("https://rickandmortycardcreator-e730b1c33bb6.herokuapp.com/api/logout", {}, { withCredentials: true })
+            .post("https://rick-and-morty-card-creator-3ff0ed935b22.herokuapp.com/api/logout", {}, { withCredentials: true })
             .then((response) => console.log(response));navigate("/")
             .catch((err) => console.log(err));
     };

@@ -9,7 +9,7 @@ const CharacterList = (props) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get('https://rickandmortycardcreator-e730b1c33bb6.herokuapp.com/api/character')
+        axios.get('https://rick-and-morty-card-creator-3ff0ed935b22.herokuapp.com/api/character')
             .then((res) => {
                 setCharacters(res.data.results);
             })

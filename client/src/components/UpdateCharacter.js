@@ -19,7 +19,7 @@ const UpdateCharacter = (props) => {
     const [errors, setErrors] = useState({});
 
     useEffect(() => {
-        axios.get('https://rickandmortycardcreator-e730b1c33bb6.herokuapp.com/api/character/' + id)
+        axios.get('https://rick-and-morty-card-creator-3ff0ed935b22.herokuapp.com/api/character/' + id)
             .then((res) => {
                 console.log(res);
                 setImage(res.data.image);
@@ -47,7 +47,7 @@ const UpdateCharacter = (props) => {
     const onSubmitHandler = (e) => {
         e.preventDefault();
 
-        axios.put('https://rickandmortycardcreator-e730b1c33bb6.herokuapp.com/api/character/' + id, {
+        axios.put('https://rick-and-morty-card-creator-3ff0ed935b22.herokuapp.com/api/character/' + id, {
             image,
             name,
             status,
